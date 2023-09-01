@@ -11,6 +11,7 @@
 body {
     background-color: rgb(1, 5, 20);
     color: white;
+    overflow-x: hidden;
 }
 
 button:disabled,
@@ -101,6 +102,7 @@ form button {
     padding: 1rem 2rem;
     background: #7224b1;
     border: 1px solid whitesmoke;
+    cursor: pointer;
 }
 
 .result {
