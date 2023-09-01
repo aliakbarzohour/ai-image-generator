@@ -1,7 +1,5 @@
 // Say Hello To New Ai Image Generator
 
-// API KEY = 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
-
 const apiKey = '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';
 
 const maxImage = 4;
