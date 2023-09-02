@@ -110,6 +110,12 @@ form button {
     cursor: pointer;
 }
 
+.desc {
+    margin: 0.6rem;
+    width: 650px;
+    line-height: 1.5rem;
+}
+
 .result {
     margin-top: 10px;
     width: 100%;
