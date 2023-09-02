@@ -101,7 +101,7 @@ function downloadImage(imgUrl, imageNumber) {
     link.click();
 }
 
-// Function To Reamove Loading Page After Document Loaded
+// Reamove Loading Page After Document Loaded
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("splash").classList.add("loaded");

@@ -2,72 +2,81 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ai Image Generator | The New Way To Generate Images</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
     <!-- Rubik Link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
     <!-- BoxIcons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- General Styles -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css" />
 </head>
 
 <body>
-
     <div id="splash">
         <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#5ebd3e" />
-                    <stop offset="33%" stop-color="#ffb900" />
-                    <stop offset="67%" stop-color="#f78200" />
-                    <stop offset="100%" stop-color="#e23838" />
-                </linearGradient>
-                <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
-                    <stop offset="0%" stop-color="#e23838" />
-                    <stop offset="33%" stop-color="#973999" />
-                    <stop offset="67%" stop-color="#009cdf" />
-                    <stop offset="100%" stop-color="#5ebd3e" />
-                </linearGradient>
-            </defs>
-            <g fill="none" stroke-linecap="round" stroke-width="16">
-                <g class="ip__track" stroke="#ddd">
-                    <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
-                    <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
-                </g>
-                <g stroke-dasharray="180 656">
-                    <path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0" d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
-                    <path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358" d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
-                </g>
-            </g>
-        </svg>
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#5ebd3e" />
+            <stop offset="33%" stop-color="#ffb900" />
+            <stop offset="67%" stop-color="#f78200" />
+            <stop offset="100%" stop-color="#e23838" />
+          </linearGradient>
+          <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
+            <stop offset="0%" stop-color="#e23838" />
+            <stop offset="33%" stop-color="#973999" />
+            <stop offset="67%" stop-color="#009cdf" />
+            <stop offset="100%" stop-color="#5ebd3e" />
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke-linecap="round" stroke-width="16">
+          <g class="ip__track" stroke="#ddd">
+            <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+            <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+          </g>
+          <g stroke-dasharray="180 656">
+            <path
+              class="ip__worm1"
+              stroke="url(#grad1)"
+              stroke-dashoffset="0"
+              d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"
+            />
+            <path
+              class="ip__worm2"
+              stroke="url(#grad2)"
+              stroke-dashoffset="358"
+              d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"
+            />
+          </g>
+        </g>
+      </svg>
     </div>
 
     <div class="container">
         <!-- Background Video -->
         <video src="assets/back.mp4" autoplay="true" loop="true"></video>
         <!-- Title and Description -->
-        <h1 style="font-weight: 700;">Welcome to Ai Image Generator</h1>
-        <p style="margin: .6rem;">
+        <h1 style="font-weight: 700">Welcome to Ai Image Generator</h1>
+        <p style="margin: 0.6rem">
             Hello artificial intelligence enthusiasts, in this program you describe the image you want to see. For example: "Happy girl with roses." If you don't enter anything in the input and submit, it will generate random photos! . enjoy .
-            <br> Note: If you click on any photo, that photo will be downloaded.
+            <br /> Note: If you click on any photo, that photo will be downloaded.
         </p>
         <!-- User Prompt -->
         <form class="gen-form" id="form">
-            <input type="text" autocomplete="off" id="user-prompt" placeholder="Type Your Promt Here . . .">
+            <input type="text" autocomplete="off" id="user-prompt" placeholder="Type Your Promt Here . . ." />
             <button type="button" id="generate">Generate</button>
         </form>
         <!-- Result and Loading -->
         <div class="result">
-            <div id="loading" style="display: none;">
+            <div id="loading" style="display: none">
                 <div class="wrapper">
-                    <i class='bx bx-loader-circle bx-spin' style='color:#ffffff; font-size: 3rem;'></i>
+                    <i class="bx bx-loader-circle bx-spin" style="color: #ffffff; font-size: 3rem"></i>
                     <h2>Generating . . .</h2>
                 </div>
             </div>
@@ -76,12 +85,13 @@
         </div>
 
         <footer>
-            by <a href="https://www.linkedin.com/in/aliakbarzohour/" target="_blank">Aliakbar Zohour</a>
-        </footer>
+            by
+            <a href="https://www.linkedin.com/in/aliakbarzohour/" target="_blank">Aliakbar Zohour</a
+        >
+      </footer>
     </div>
 
     <!-- All Of Js Code's -->
     <script src="js/main.js" defer></script>
-</body>
-
+  </body>
 </html>
