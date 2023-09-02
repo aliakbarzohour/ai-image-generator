@@ -1,6 +1,6 @@
 // Say Hello To New Ai Image Generator
 
-const apiKey = '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';
+const apiKey = "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";
 
 const maxImage = 4;
 
@@ -29,11 +29,11 @@ function clearImageGrid() {
 
 // Function To Generate Images
 async function generateImages(input) {
-    disableGenerateButton()
-    clearImageGrid()
+    disableGenerateButton();
+    clearImageGrid();
 
     const loading = document.getElementById("loading");
-    loading.style.display = 'block';
+    loading.style.display = "block";
 
     const imageUrls = [];
 
@@ -42,12 +42,13 @@ async function generateImages(input) {
         const randomNumber = getRandomNumber(1, 10000);
         const prompt = `${input} ${randomNumber}`;
         // We Added Random Number To Prompt To Create Diffrent Results
+
         const response = await fetch(
             "https://api-inference.huggingface.co/models/prompthero/openjourney", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`
+                    Authorization: `Bearer ${apiKey}`,
                 },
                 body: JSON.stringify({ inputs: prompt }),
             }
@@ -58,7 +59,8 @@ async function generateImages(input) {
             error.style.color = "red";
             error.style.fontSize = "1.2rem";
             const result = document.getElementById("result");
-            result.innerHTML = "Failed To Fetch Data !";
+            error.innerHTML = response.text();
+            result.appendChild(error);
         }
         const blob = await response.blob();
         const imgUrl = URL.createObjectURL(blob);
@@ -80,7 +82,7 @@ async function generateImages(input) {
 // Function To Fetch Data After Clicking Generate Button
 document.getElementById("generate").addEventListener("click", () => {
     const input = document.getElementById("user-prompt").value;
-    console.log(input)
+    console.log(input);
     generateImages(input);
 });
 
@@ -88,9 +90,9 @@ document.getElementById("generate").addEventListener("click", () => {
 document.getElementById("form").addEventListener("submit", (e) => {
     e.preventDefault();
     const input = document.getElementById("user-prompt").value;
-    console.log(input)
+    console.log(input);
     generateImages(input);
-})
+});
 
 // Function To Download Image's
 function downloadImage(imgUrl, imageNumber) {
@@ -105,4 +107,4 @@ function downloadImage(imgUrl, imageNumber) {
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("splash").classList.add("loaded");
-})
+});
