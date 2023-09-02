@@ -112,7 +112,8 @@ form button {
 
 .desc {
     margin: 0.6rem;
-    width: 650px;
+    max-width: 650px;
+    width: 120%;
     line-height: 1.5rem;
 }
 
