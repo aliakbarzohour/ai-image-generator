@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Rubik:wght@400;600&display=swap');
+:root {
+    --hue: 223;
+    --bg: hsl(var(--hue), 90%, 95%);
+    --fg: hsl(var(--hue), 90%, 5%);
+    --trans-dur: 0.3s;
+}
 
 * {
     margin: 0;
@@ -21,7 +27,6 @@ button[disabled] {
     color: gray;
     cursor: auto;
 }
-
 
 .container {
     width: 1000px;
@@ -143,7 +148,7 @@ form button {
     box-shadow: 0 0 15px white;
 }
 
-footer{
+footer {
     color: white;
     position: fixed;
     width: 100%;
@@ -153,11 +158,13 @@ footer{
     background: rgba(0, 0, 0, 0.274);
     overflow: hidden;
 }
+
 footer a {
     text-decoration: none;
     font-weight: 700;
     color: white;
 }
+
 
 /* Responsive For Small Device's */
 
@@ -166,20 +173,107 @@ footer a {
         grid-template-columns: repeat(1, 1fr);
         max-width: 100%;
     }
-
     form {
         width: 100%;
         flex-direction: column;
     }
-
     form input {
         border: 1px solid white;
         border-radius: 10px 10px 0px 0px;
     }
-
     form button {
         border-radius: 0px 0px 10px 10px;
         width: 100%;
         border: 1px solid whitesmoke;
+    }
+}
+
+
+/* Loading Page */
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#splash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background: #010412;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 99999999999999;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+}
+
+.ip {
+    width: 16em;
+    height: 8em;
+}
+
+.ip__track {
+    stroke: hsl(var(--hue), 90%, 90%);
+    transition: stroke var(--trans-dur);
+}
+
+.ip__worm1,
+.ip__worm2 {
+    animation: worm1 1s linear infinite;
+}
+
+.ip__worm2 {
+    animation-name: worm2;
+}
+
+
+/* Dark theme */
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --bg: hsl(var(--hue), 90%, 5%);
+        --fg: hsl(var(--hue), 90%, 95%);
+    }
+    .ip__track {
+        stroke: hsl(var(--hue), 90%, 15%);
+    }
+}
+
+
+/* Animation */
+
+@keyframes worm1 {
+    from {
+        stroke-dashoffset: 0;
+    }
+    50% {
+        animation-timing-function: steps(1);
+        stroke-dashoffset: -358;
+    }
+    50.01% {
+        animation-timing-function: linear;
+        stroke-dashoffset: 358;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes worm2 {
+    from {
+        stroke-dashoffset: 358;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: -358;
     }
 }

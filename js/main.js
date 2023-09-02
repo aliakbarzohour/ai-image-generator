@@ -43,8 +43,7 @@ async function generateImages(input) {
         const prompt = `${input} ${randomNumber}`;
         // We Added Random Number To Prompt To Create Diffrent Results
         const response = await fetch(
-            "https://api-inference.huggingface.co/models/prompthero/openjourney",
-            {
+            "https://api-inference.huggingface.co/models/prompthero/openjourney", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -101,3 +100,9 @@ function downloadImage(imgUrl, imageNumber) {
     link.download = `image-${imageNumber + 1}.jpg`;
     link.click();
 }
+
+// Function To Reamove Loading Page After Document Loaded
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("splash").classList.add("loaded");
+})
